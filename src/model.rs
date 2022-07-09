@@ -34,17 +34,22 @@ impl DinosaurCard {
         }
     }
 }
+pub trait Cmp {
+    // fn show(&self);
+    // fn clone_dyn(&self) -> Self;
+    fn cmp(&self, other:&Self, field: &str) -> bool;
+}
 
 pub trait Card {
     fn show(&self);
-    fn clone_dyn(&self) -> Self;
+    // fn clone_dyn(&self) -> Self;
     // fn cmp(&self, other:&Self, field: &str) -> bool;
 }
 
 impl Card for HarryPotterCard {
-    fn clone_dyn(&self) -> Self {
-        Box::new(self.clone()) // Forward to the derive(Clone) impl
-    }
+    // fn clone_dyn(&self) -> Self {
+    //     Box::new(self.clone()) // Forward to the derive(Clone) impl
+    // }
     fn show(&self) {
         println!("{:#?}", &self)
     }
@@ -65,9 +70,9 @@ impl Cmp for DinosaurCard {
 }
 impl Card for DinosaurCard {
     // }
-    fn clone_dyn(&self) -> Self {
-        Box::new(self.clone()) // Forward to the derive(Clone) impl
-    }
+    // fn clone_dyn(&self) -> Self {
+    //     Box::new(self.clone()) // Forward to the derive(Clone) impl
+    // }
     fn show(&self) {
         println!(
             "
